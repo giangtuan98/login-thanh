@@ -1,0 +1,19 @@
+@import "abstracts/variables";
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/placeholders";
+
+// @import "vendors/placeholders";
+
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/animations';
+
+@import 'layout/header';
+@import 'layout/footer';
+
+@import 'components/buttons';
+
+@import 'pages/home';
+
+// @import 'themes/';
