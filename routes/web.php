@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\UserController;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +18,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/1', function () {
-    return view('welcome');
-});
+$controller = new Controller();
+
+
+Route::get('test-shop', [ShopController::class, 'test'])->name('shop.test')->middleware('auth:shop');
+Route::get('shop/logout', [ShopController::class, 'logout'])->middleware('auth:shop');
+
+Route::get('admin/login', [UserController::class, 'login']);
+Route::get('admin', [UserController::class, 'admin'])->middleware('auth:web');
+Route::get('admin/login-shop/{shop}', [UserController::class, 'loginShop'])->middleware('auth:web');
